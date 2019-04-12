@@ -1,0 +1,38 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+import javafx.collections.FXCollections;
+
+public class MainController  implements Initializable {
+	private Main myApp;			//用于和主控程序关联
+	//定义界面中的输入栏目
+	@FXML
+	private ComboBox yhlb;
+	@FXML 
+    private TextField yhzh;
+    @FXML    //不能删除：每个@FXML只管一个控件
+    private PasswordField yhkl;
+       
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    	//yhlb.getItems().removeAll(yhlb.getItems());
+    	yhlb =new ComboBox();
+    	//ComboBox myyhlb=yhlb;
+    	//yhlb.getItems().addAll( "病人登录", "医生登录" );
+    	//yhlb=myyhlb;
+    	//yhlb.getItems().add("病人登录");
+    	//yhlb.getSelectionModel().select("病人登录");
+    	
+    }    
+    
+    public void setUp(Main application) {
+        myApp = application;
+        //yhlb.getItems().addAll( "病人登录", "医生登录" );
+    }    
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import import javafx.collections.FXCollections?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Button id="qdan" layoutX="238.0" layoutY="276.0" mnemonicParsing="false" text="确定" />
+      <Button id="tcan" layoutX="333.0" layoutY="276.0" mnemonicParsing="false" text="退出" />
+      <Label layoutX="278.0" layoutY="76.0" prefHeight="23.0" prefWidth="61.0" text="系统登录">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="141.0" layoutY="171.0" text="账号:" />
+      <Label layoutX="141.0" layoutY="218.0" text="口令：" />
+      <TextField id="yhzh" layoutX="192.0" layoutY="169.0" prefHeight="23.0" prefWidth="252.0" />
+      <PasswordField id="yhkl" layoutX="192.0" layoutY="216.0" prefHeight="23.0" prefWidth="252.0" />
+      <Label layoutX="142.0" layoutY="124.0" text="类别：" />
+      <ComboBox id="yhlb" editable="true" layoutX="192.0" layoutY="120.0" prefHeight="23.0" prefWidth="252.0">
+          <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:id="reihe" fx:value="Reihenschaltung" />
+                    <String fx:id="parallel" fx:value="Parallelschaltung" />
+                </FXCollections>
+         </items>      
+      </ComboBox>
+   </children>
+</AnchorPane>

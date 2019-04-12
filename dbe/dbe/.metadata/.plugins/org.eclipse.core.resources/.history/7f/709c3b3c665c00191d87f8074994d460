@@ -1,0 +1,62 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.ComboBox;
+import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent ;
+
+public class MainController  implements Initializable {
+	private Main myApp;			//用于和主控程序关联
+	//定义界面中的输入栏目
+	@FXML
+	private ComboBox<String> yhlb;
+	@FXML 
+    private ComboBox<String> yhzh;
+    @FXML    //不能删除：每个@FXML只管一个控件
+    private PasswordField yhkl;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    	//yhlb.getItems().removeAll(yhlb.getItems());
+    	yhlb.getItems().addAll( "病人登录", "医生登录");
+    	//yhzh.getItems().addAll( "xx病人登录", "xx医生登录"); 
+    	//yhzh.setOnMouseEntered(e -> onyhzhEnter(yhzh, e));
+    	//yhzh.setOnMouseExited(e -> onyhzhExit(yhzh, e));
+    	yhzh.setVisibleRowCount(4);
+    }   
+    
+      
+   
+    private void onyhzhEnter(ComboBox<String> yhzh, MouseEvent event)  {
+    	//ComboBox<String> yhzh=(ComboBox<String>)event.getSource();
+    	yhzh.getItems().removeAll(yhzh.getItems());
+    	yhzh.getItems().addAll( "xx病人登录", "xx医生登录","xx病人登录"); 
+    	yhzh.show();
+    }  
+    
+    private void onyhzhExit(ComboBox<String> yhzh, MouseEvent event)  {
+    	yhzh.hide();
+    }   
+    
+    @FXML
+    private void onyhEnter(MouseEvent event)  {
+    	ComboBox<String> yhzh=(ComboBox<String>)event.getSource();
+    	yhzh.getItems().removeAll(yhzh.getItems());
+    	yhzh.getItems().addAll( "xx病人登录", "xx医生登录","xx病人登录"); 
+    	yhzh.show();
+    } 
+
+    @FXML
+    private void onyhExit(MouseEvent event)  {
+    	yhzh.hide();  
+    }   
+    
+    public void setUp(Main application) {
+        myApp = application;
+
+    }    
+}

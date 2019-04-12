@@ -1,0 +1,14 @@
+package application;
+
+public class BRXX {
+	public String BRBH=null;
+	public String BRMC=null;
+    public String DLKL=null;
+    public double YCJE=0;  //不能随便使用，如果病人同时登录两台电脑挂号
+    public BRXX(String BRBH, String BRMC,String DLKL, double YCJE) {
+    	this.BRBH=new String(BRBH);
+    	this.BRMC=new String(BRMC);
+    	this.DLKL=new String(DLKL);
+    	this.YCJE=YCJE;
+    }
+}

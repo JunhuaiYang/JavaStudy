@@ -1,0 +1,63 @@
+package application;
+	
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import java.sql.Statement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+public class Main extends Application {
+	//数据库连接信息
+    String strCon = "jdbc:sqlserver://localhost:1433;databaseName=DemoHis";
+	String strUserName = "sa"; 	// 数据库的用户名称
+	String strPWD = "Sa123456"; // 数据库的密码
+	public java.sql.Connection con =null;	
+	public short brys=0; 		//等于0时无人登录，等于1时为病人登录，等于2为医生登录
+	//病人基本信息
+	public ArrayList<BRXX> brxx= new ArrayList<BRXX>();
+	public ArrayList<KSYS> ksys= new ArrayList<KSYS>();
+	public BRXX dlbr=null;  	//登录的病人信息
+	public KSYS ksys=null;		//登录的医生信息
+	
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			//连接数据库
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            con = java.sql.DriverManager.getConnection(strCon, strUserName, strPWD);
+            if(con!=null) System.out.println("已顺利连接到数据库。");		
+            //读入病人和医生信息
+            Statement stat = con.createStatement();
+            ResultSet rsbr = stat.executeQuery("SELECT * FROM T_BRXX");
+            while(rsbr.next()){ //取得一行记录，放在rs里
+            	rsbr.getString("BRBH");
+            	rsbr.getInt("BRMC");
+                rsbr.getDouble("DLKL");
+                rsbr.getDouble("YCJE");  //不能随便使用，如果病人同时登录两台电脑挂号
+            };
+
+            ResultSet rsys = stat.executeQuery("SELECT * FROM T_KSYS");
+            ResultSet rsks = stat.executeQuery("SELECT * FROM T_KSXX");
+            ResultSet rshz = stat.executeQuery("SELECT * FROM T_HZXX");
+			//装载主界面
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("denglu.fxml"));
+			Parent root = (Parent)loader.load();
+			MainController controller=(MainController) loader.getController();;
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+	        controller.setUp(this);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}

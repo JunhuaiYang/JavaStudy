@@ -23,7 +23,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        //launch(args);
+
         // 1.加载数据访问驱动
         //声明Connection对象
         Connection con;
@@ -77,5 +77,6 @@ public class Main extends Application {
             //数据库连接失败异常处理
             e.printStackTrace();
         }
+        launch(args);
     }
 }

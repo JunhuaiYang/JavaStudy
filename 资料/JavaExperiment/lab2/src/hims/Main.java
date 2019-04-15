@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         // intialize connector
         try {
-            DBConnector.getInstance().connectDataBase("localhost", 3306, "java_lab2", "java", "javajava");
+            DBConnector.getInstance().connectDataBase("47.75.53.92", 3306, "hospital", "hospital", "yjh66778899");
         } catch (SQLException e) {
             System.err.println("failed to connect to sql database");
             System.exit(0);

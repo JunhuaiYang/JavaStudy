@@ -10,7 +10,7 @@ public class DBConnector {
     private Statement transactionStatement;
 
     private DBConnector() throws ClassNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("com.mysql.cj.jdbc.Driver");
     }
 
     static public DBConnector getInstance() {

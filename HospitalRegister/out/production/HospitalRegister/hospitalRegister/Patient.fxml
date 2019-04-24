@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="mainPane" prefHeight="446.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.PatientController">
+<GridPane fx:id="mainPane" prefHeight="446.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.PatientCtrl">
   <columnConstraints>
     <ColumnConstraints />
     <ColumnConstraints halignment="RIGHT" maxWidth="149.0" minWidth="-Infinity" prefWidth="149.0" />

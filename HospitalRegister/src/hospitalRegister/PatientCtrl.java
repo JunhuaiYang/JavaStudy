@@ -111,8 +111,8 @@ class ListItemNameRegister extends ListItem {
     }
 }
 
-public class PatientController {
-    // basic patient info, initialized by LoginController
+public class PatientCtrl {
+    // basic patient info, initialized by LoginCtrl
     static public String patientName;
     static public String patientNumber;
     static public Double patientBalance;

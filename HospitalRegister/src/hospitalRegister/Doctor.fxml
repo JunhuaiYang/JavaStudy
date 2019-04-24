@@ -21,7 +21,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" prefHeight="878.0" prefWidth="1212.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.DoctorController">
+<GridPane alignment="CENTER" prefHeight="878.0" prefWidth="1212.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.DoctorCtrl">
    <columnConstraints>
       <ColumnConstraints halignment="LEFT" minWidth="-Infinity" />
       <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="130.0" />

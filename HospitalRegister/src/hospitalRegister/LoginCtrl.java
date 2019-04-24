@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class LoginController {
+public class LoginCtrl {
     @FXML
     public GridPane gridPanes;
     @FXML
@@ -89,8 +89,8 @@ public class LoginController {
                 return;
             }
 
-            DoctorController.doctorName = result.getString(Config.NameTableColumnDoctorName);
-            DoctorController.doctorNumber = result.getString(Config.NameTableColumnDoctorNumber);
+            DoctorCtrl.doctorName = result.getString(Config.NameTableColumnDoctorName);
+            DoctorCtrl.doctorNumber = result.getString(Config.NameTableColumnDoctorNumber);
 
             DBConnector.getInstance().updateDoctorLoginTime(
                     result.getString(Config.NameTableColumnDoctorNumber),
@@ -122,9 +122,9 @@ public class LoginController {
             }
 
             // fill info and login to patient page
-            PatientController.patientName = result.getString(Config.NameTableColumnPatientName);
-            PatientController.patientBalance = result.getDouble(Config.NameTableColumnPatientBalance);
-            PatientController.patientNumber = result.getString(Config.NameTableColumnPatientNumber);
+            PatientCtrl.patientName = result.getString(Config.NameTableColumnPatientName);
+            PatientCtrl.patientBalance = result.getDouble(Config.NameTableColumnPatientBalance);
+            PatientCtrl.patientNumber = result.getString(Config.NameTableColumnPatientNumber);
 
             DBConnector.getInstance().updatePatientLoginTime(
                     result.getString(Config.NameTableColumnPatientNumber),

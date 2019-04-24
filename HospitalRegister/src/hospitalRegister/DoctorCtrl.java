@@ -23,7 +23,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class DoctorController {
+public class DoctorCtrl {
     private static final class Register extends RecursiveTreeObject<Register> {
         public StringProperty number;
         public StringProperty namePatient;
@@ -54,7 +54,7 @@ public class DoctorController {
         }
     }
 
-    // set by LoginController
+    // set by LoginCtrl
     public static String doctorName;
     public static String doctorNumber;
 

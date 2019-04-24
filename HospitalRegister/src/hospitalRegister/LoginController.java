@@ -43,10 +43,13 @@ public class LoginController {
         PatientLogin.setSelected(true);
         PatientLogin.setUserData("Patient");
 
+        // 按下enter登录
         buttonLogin.setOnKeyReleased(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER)
                 Login();
         });
+
+
     }
 
     @FXML

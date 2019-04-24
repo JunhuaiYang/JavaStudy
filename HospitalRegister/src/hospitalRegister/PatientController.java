@@ -436,12 +436,6 @@ public class PatientController {
                 buttonRegisterPressed();
         });
 
-        buttonExit.setOnKeyReleased(keyEvent -> {
-            try {
-                if (keyEvent.getCode() == KeyCode.ENTER)
-                    buttonExitClicked();
-            } catch (IOException e) { }
-        });
 
         checkBoxUseBalance.setOnKeyReleased(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.SPACE)

@@ -19,7 +19,6 @@ import java.sql.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
@@ -86,8 +85,8 @@ public class DoctorCtrl {
     private ObservableList<Register> listRegister = FXCollections.observableArrayList();
     private ObservableList<Income> listIncome = FXCollections.observableArrayList();
 
-    @FXML JFXCheckBox checkBoxAllTime;
-    @FXML JFXCheckBox checkBoxToday;
+    @FXML JFXRadioButton RadioButtonAllTime;
+    @FXML JFXRadioButton RadioButtonToday;
     @FXML JFXButton buttonFilter;
 
     @FXML
@@ -135,16 +134,16 @@ public class DoctorCtrl {
     }
 
     @FXML
-    private void buttomFilterPressed() {
+    private void buttonFilterPressed() {
         if(mainPane.getSelectionModel().getSelectedItem() == tabRegister) {
             ResultSet result;
-            if (checkBoxAllTime.isSelected()) {
+            if (RadioButtonAllTime.isSelected()) {
                 result = DBConnector.getInstance().getRegisterForDoctor(
                         doctorNumber,
                         "0000-00-00 00:00:00",
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 );
-            } else if (checkBoxToday.isSelected()) {
+            } else if (RadioButtonToday.isSelected()) {
                 result = DBConnector.getInstance().getRegisterForDoctor(
                         doctorNumber,
                         LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
@@ -174,12 +173,12 @@ public class DoctorCtrl {
             }
         } else if (mainPane.getSelectionModel().getSelectedItem() == tabIncome) {
             ResultSet result;
-            if (checkBoxAllTime.isSelected()) {
+            if (RadioButtonAllTime.isSelected()) {
                 result = DBConnector.getInstance().getIncomeInfo(
                         "0000-00-00 00:00:00",
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 );
-            } else if (checkBoxToday.isSelected()) {
+            } else if (RadioButtonToday.isSelected()) {
                 result = DBConnector.getInstance().getIncomeInfo(
                         LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
@@ -224,11 +223,11 @@ public class DoctorCtrl {
 
     @FXML
     void checkBoxAllTimeSelected(){
-        if (checkBoxAllTime.isSelected()) {
-            checkBoxToday.setSelected(false);
+        if (RadioButtonAllTime.isSelected()) {
+            RadioButtonToday.setSelected(false);
             pickerDateStart.setDisable(true);
             pickerDateEnd.setDisable(true);
-        } else if (!checkBoxToday.isSelected()) {
+        } else if (!RadioButtonToday.isSelected()) {
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
         }
@@ -236,11 +235,11 @@ public class DoctorCtrl {
 
     @FXML
     void checkBoxTodaySelected(){
-        if (checkBoxToday.isSelected()) {
-            checkBoxAllTime.setSelected(false);
+        if (RadioButtonToday.isSelected()) {
+            RadioButtonAllTime.setSelected(false);
             pickerDateStart.setDisable(true);
             pickerDateEnd.setDisable(true);
-        } else if(!checkBoxAllTime.isSelected()){
+        } else if(!RadioButtonAllTime.isSelected()){
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
         }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import javafx.geometry.Insets?>
@@ -20,7 +20,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" prefHeight="878.0" prefWidth="1212.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.DoctorCtrl">
+<GridPane alignment="CENTER" prefHeight="878.0" prefWidth="1212.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.DoctorCtrl">
    <columnConstraints>
       <ColumnConstraints halignment="LEFT" maxWidth="131.0" minWidth="-Infinity" prefWidth="73.0" />
       <ColumnConstraints hgrow="NEVER" maxWidth="217.0" minWidth="-Infinity" prefWidth="146.0" />
@@ -120,13 +120,13 @@
       </JFXDatePicker>
       <GridPane GridPane.columnIndex="6" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
         <columnConstraints>
-            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
-            <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
-            <ColumnConstraints hgrow="NEVER" maxWidth="290.0" minWidth="10.0" prefWidth="234.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="138.0" minWidth="-Infinity" prefWidth="135.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="127.0" minWidth="-Infinity" prefWidth="108.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="290.0" minWidth="10.0" prefWidth="191.0" />
           <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="-Infinity" prefWidth="286.0" />
         </columnConstraints>
          <children>
-            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttomFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttonFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
@@ -134,16 +134,8 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXCheckBox fx:id="checkBoxAllTime" onAction="#checkBoxAllTimeSelected" text="全部时间" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="checkBoxToday" onAction="#checkBoxTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-            </JFXCheckBox>
+            <JFXRadioButton fx:id="RadioButtonAllTime" mnemonicParsing="false" onAction="#checkBoxAllTimeSelected" prefHeight="15.0" prefWidth="112.0" text="全部时间" GridPane.rowIndex="1" />
+            <JFXRadioButton fx:id="RadioButtonToday" mnemonicParsing="false" onAction="#checkBoxTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <rowConstraints>
             <RowConstraints />

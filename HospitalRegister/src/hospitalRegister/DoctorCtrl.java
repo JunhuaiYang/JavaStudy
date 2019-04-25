@@ -62,8 +62,6 @@ public class DoctorCtrl {
     @FXML private Label labelWelcome;
     @FXML private JFXDatePicker pickerDateStart;
     @FXML private JFXDatePicker pickerDateEnd;
-    @FXML private JFXTimePicker pickerTimeStart;
-    @FXML private JFXTimePicker pickerTimeEnd;
 
     @FXML private JFXTabPane mainPane;
     @FXML private Tab tabRegister;
@@ -102,13 +100,6 @@ public class DoctorCtrl {
         // default to current date
         pickerDateStart.setValue(LocalDate.now());
         pickerDateEnd.setValue(LocalDate.now());
-
-        // set time selector to 24h
-        pickerTimeStart.set24HourView(true);
-        pickerTimeEnd.set24HourView(true);
-        // default to 00:00 to 23:59
-        pickerTimeStart.setValue(LocalTime.MIN);
-        pickerTimeEnd.setValue(LocalTime.MAX);
 
         // initiailze register list
         columnRegisterNumber.setCellValueFactory(
@@ -162,10 +153,8 @@ public class DoctorCtrl {
             } else {
                 result = DBConnector.getInstance().getRegisterForDoctor(
                         doctorNumber,
-                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) +
-                                pickerTimeStart.getValue().format(DateTimeFormatter.ofPattern(" HH:mm:ss")),
-                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) +
-                                pickerTimeEnd.getValue().format(DateTimeFormatter.ofPattern(" HH:mm:ss"))
+                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
+                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                 );
             }
 
@@ -197,10 +186,8 @@ public class DoctorCtrl {
                 );
             } else {
                 result = DBConnector.getInstance().getIncomeInfo(
-                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) +
-                                pickerTimeStart.getValue().format(DateTimeFormatter.ofPattern(" HH:mm:ss")),
-                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) +
-                                pickerTimeEnd.getValue().format(DateTimeFormatter.ofPattern(" HH:mm:ss"))
+                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
+                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
                 );
             }
 
@@ -241,13 +228,9 @@ public class DoctorCtrl {
             checkBoxToday.setSelected(false);
             pickerDateStart.setDisable(true);
             pickerDateEnd.setDisable(true);
-            pickerTimeStart.setDisable(true);
-            pickerTimeEnd.setDisable(true);
         } else if (!checkBoxToday.isSelected()) {
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
-            pickerTimeStart.setDisable(false);
-            pickerTimeEnd.setDisable(false);
         }
     }
 
@@ -257,13 +240,9 @@ public class DoctorCtrl {
             checkBoxAllTime.setSelected(false);
             pickerDateStart.setDisable(true);
             pickerDateEnd.setDisable(true);
-            pickerTimeStart.setDisable(true);
-            pickerTimeEnd.setDisable(true);
         } else if(!checkBoxAllTime.isSelected()){
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
-            pickerTimeStart.setDisable(false);
-            pickerTimeEnd.setDisable(false);
         }
     }
 }

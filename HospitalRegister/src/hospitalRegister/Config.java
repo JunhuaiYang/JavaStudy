@@ -7,39 +7,38 @@ public class Config {
     public static String TablePatient = "patient";
     public static String TableRegister = "register";
 
-    public static String NameTableColumnDepartmentNumber = "depid";
-    public static String NameTableColumnDepartmentName = "name";
-    public static String NameTableColumnDepartmentPronounce = "py";
+    public static String ColumnDepartmentNumber = "depid";
+    public static String ColumnDepartmentName = "name";
+    public static String ColumnDepartmentPronounce = "py";
 
-    public static String NameTableColumnDoctorNumber = "docid";
-    public static String NameTableColumnDoctorDepartmentNumber = "depid";
-    public static String NameTableColumnDoctorName = "name";
-    public static String NameTableColumnDoctorPronounce = "py";
-    public static String NameTableColumnDoctorPassword = "password";
-    public static String NameTableColumnDoctorIsSpecialist = "speciallist";
-    public static String NameTableColumnDoctorLastLogin = "last_login_datetime";
+    public static String ColumnDoctorNumber = "docid";
+    public static String ColumnDoctorDepartmentNumber = "depid";
+    public static String ColumnDoctorName = "name";
+    public static String ColumnDoctorPronounce = "py";
+    public static String ColumnDoctorPassword = "password";
+    public static String ColumnDoctorIsSpecialist = "speciallist";
+    public static String ColumnDoctorLastLogin = "last_login_datetime";
 
-    public static String NameTableColumnCategoryRegisterNumber = "catid";
-    public static String NameTableColumnCategoryRegisterName = "name";
-    public static String NameTableColumnCategoryRegisterPronounce = "py";
-    public static String NameTableColumnCategoryRegisterDepartment = "depid";
-    public static String NameTableColumnCategoryRegisterIsSpecialist = "speciallist";
-    public static String NameTableColumnCategoryRegisterMaxRegisterNumber = "max_reg_number";
-    public static String NameTableColumnCategoryRegisterFee = "reg_fee";
+    public static String ColumnCategoryRegisterNumber = "catid";
+    public static String ColumnCategoryRegisterName = "name";
+    public static String ColumnCategoryRegisterPronounce = "py";
+    public static String ColumnCategoryRegisterDepartment = "depid";
+    public static String ColumnCategoryRegisterIsSpecialist = "speciallist";
+    public static String ColumnCategoryRegisterMaxRegisterNumber = "max_reg_number";
+    public static String ColumnCategoryRegisterFee = "reg_fee";
 
-    public static String NameTableColumnPatientNumber = "pid";
-    public static String NameTableColumnPatientName = "name";
-    public static String NameTableColumnPatientPassword = "password";
-    public static String NameTableColumnPatientBalance = "balance";
-    public static String NameTableColumnPatientLastLogin = "last_login_datetime";
+    public static String ColumnPatientNumber = "pid";
+    public static String ColumnPatientName = "name";
+    public static String ColumnPatientPassword = "password";
+    public static String ColumnPatientBalance = "balance";
+    public static String ColumnPatientLastLogin = "last_login_datetime";
 
-    public static String NameTableColumnRegisterNumber = "reg_id";
-    public static String NameTableColumnRegisterCategoryNumber = "catid";
-    public static String NameTableColumnRegisterDoctorNumber = "docid";
-    public static String NameTableColumnRegisterPatientNumber = "pid";
-    public static String NameTableColumnRegisterCurrentRegisterCount = "current_reg_count";
-    public static String NameTableColumnRegisterUnregister = "unreg";
-    public static String NameTableColumnRegisterFee = "reg_fee";
-    public static String NameTableColumnRegisterDateTime = "reg_datetime";
+    public static String ColumnRegisterNumber = "reg_id";
+    public static String ColumnRegisterCategoryNumber = "catid";
+    public static String ColumnRegisterDoctorNumber = "docid";
+    public static String ColumnRegisterPatientNumber = "pid";
+    public static String ColumnRegisterCurrentRegisterCount = "current_reg_count";
+    public static String ColumnRegisterFee = "reg_fee";
+    public static String ColumnRegisterDateTime = "reg_datetime";
 
 }

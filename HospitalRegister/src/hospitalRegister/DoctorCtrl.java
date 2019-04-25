@@ -173,10 +173,10 @@ public class DoctorCtrl {
                 listRegister.clear();
                 while (result.next()) {
                     listRegister.add(new Register(
-                            result.getString(Config.NameTableColumnRegisterNumber),
-                            result.getString(Config.NameTableColumnPatientName),
-                            result.getTimestamp(Config.NameTableColumnRegisterDateTime),
-                            result.getBoolean(Config.NameTableColumnCategoryRegisterIsSpecialist)
+                            result.getString(Config.ColumnRegisterNumber),
+                            result.getString(Config.ColumnPatientName),
+                            result.getTimestamp(Config.ColumnRegisterDateTime),
+                            result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist)
                     ));
                 }
             } catch (SQLException e) {
@@ -209,10 +209,10 @@ public class DoctorCtrl {
                 while (result.next()) {
                     listIncome.add(new Income(
                                     result.getString("depname"),
-                                    result.getString(Config.NameTableColumnDoctorNumber),
+                                    result.getString(Config.ColumnDoctorNumber),
                                     result.getString("docname"),
-                                    result.getBoolean(Config.NameTableColumnCategoryRegisterIsSpecialist),
-                                    result.getInt(Config.NameTableColumnRegisterCurrentRegisterCount),
+                                    result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist),
+                                    result.getInt(Config.ColumnRegisterCurrentRegisterCount),
                                     result.getDouble("sum")
                             )
                     );

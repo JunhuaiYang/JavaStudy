@@ -41,9 +41,9 @@ class ListItemNameDepartment extends ListItem{
 
     @Override
     public void fromSqlResult(ResultSet result) throws SQLException{
-        number = result.getString(Config.NameTableColumnDepartmentNumber);
-        name = result.getString(Config.NameTableColumnDepartmentName);
-        pronounce = result.getString(Config.NameTableColumnDepartmentPronounce);
+        number = result.getString(Config.ColumnDepartmentNumber);
+        name = result.getString(Config.ColumnDepartmentName);
+        pronounce = result.getString(Config.ColumnDepartmentPronounce);
     }
 }
 
@@ -62,13 +62,13 @@ class ListItemNameDoctor extends ListItem {
 
     @Override
     public void fromSqlResult(ResultSet result) throws SQLException{
-        number = result.getString(Config.NameTableColumnDoctorNumber);
-        departmentNumber = result.getString(Config.NameTableColumnDoctorDepartmentNumber);
-        name = result.getString(Config.NameTableColumnDoctorName);
-        isSpecialist = result.getBoolean(Config.NameTableColumnDoctorIsSpecialist);
-        lastLogin = result.getTimestamp(Config.NameTableColumnDoctorLastLogin);
-        password = result.getString(Config.NameTableColumnDoctorPassword);
-        pronounce = result.getString(Config.NameTableColumnDoctorPronounce);
+        number = result.getString(Config.ColumnDoctorNumber);
+        departmentNumber = result.getString(Config.ColumnDoctorDepartmentNumber);
+        name = result.getString(Config.ColumnDoctorName);
+        isSpecialist = result.getBoolean(Config.ColumnDoctorIsSpecialist);
+        lastLogin = result.getTimestamp(Config.ColumnDoctorLastLogin);
+        password = result.getString(Config.ColumnDoctorPassword);
+        pronounce = result.getString(Config.ColumnDoctorPronounce);
     }
 }
 
@@ -101,13 +101,13 @@ class ListItemNameRegister extends ListItem {
 
     @Override
     public void fromSqlResult(ResultSet result) throws SQLException {
-        number = result.getString(Config.NameTableColumnCategoryRegisterNumber);
-        name = result.getString(Config.NameTableColumnCategoryRegisterName);
-        pronounce = result.getString(Config.NameTableColumnCategoryRegisterPronounce);
-        department = result.getString(Config.NameTableColumnCategoryRegisterDepartment);
-        isSpecialist = result.getBoolean(Config.NameTableColumnCategoryRegisterIsSpecialist);
-        maxNumber = result.getInt(Config.NameTableColumnCategoryRegisterMaxRegisterNumber);
-        fee = result.getFloat(Config.NameTableColumnCategoryRegisterFee);
+        number = result.getString(Config.ColumnCategoryRegisterNumber);
+        name = result.getString(Config.ColumnCategoryRegisterName);
+        pronounce = result.getString(Config.ColumnCategoryRegisterPronounce);
+        department = result.getString(Config.ColumnCategoryRegisterDepartment);
+        isSpecialist = result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist);
+        maxNumber = result.getInt(Config.ColumnCategoryRegisterMaxRegisterNumber);
+        fee = result.getFloat(Config.ColumnCategoryRegisterFee);
     }
 }
 
@@ -869,7 +869,7 @@ class TryRegisterService extends Service {
                         ResultSet patientInfo = DBConnector.getInstance().getPatientInfo(patientNumber);
                         if(!patientInfo.next())
                             returnCode = RegisterException.ErrorCode.patientNotExist;
-                        updatedBalance = patientInfo.getDouble(Config.NameTableColumnPatientBalance);
+                        updatedBalance = patientInfo.getDouble(Config.ColumnPatientBalance);
                     } catch (SQLException e) {
                         returnCode = RegisterException.ErrorCode.sqlException;
                         return null;

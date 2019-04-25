@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="更改前">
+      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/DBConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" afterDir="false" />
@@ -97,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="117" column="35" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
+            <state relative-caret-position="355">
+              <caret line="284" column="85" selection-start-line="284" selection-start-column="85" selection-end-line="284" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -106,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="100" column="56" lean-forward="true" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+            <state relative-caret-position="297">
+              <caret line="102" column="50" lean-forward="true" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="133" column="65" selection-start-line="133" selection-start-column="65" selection-end-line="133" selection-end-column="65" />
+            <state relative-caret-position="1022">
+              <caret line="133" column="64" selection-start-line="133" selection-start-column="64" selection-end-line="133" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -133,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+            <state relative-caret-position="546">
+              <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -202,11 +204,11 @@
         <option value="$PROJECT_DIR$/src/hospitalRegister/LoginController.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Login.fxml" />
-        <option value="$PROJECT_DIR$/src/hospitalRegister/Config.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Patient.fxml" />
-        <option value="$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java" />
-        <option value="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/Config.java" />
       </list>
     </option>
   </component>
@@ -416,12 +418,12 @@
       <workItem from="1556094285768" duration="1151000" />
       <workItem from="1556118422143" duration="1714000" />
       <workItem from="1556168596510" duration="8046000" />
-      <workItem from="1556198212394" duration="2150000" />
+      <workItem from="1556198212394" duration="4357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57493000" />
+    <option name="totallyTimeSpent" value="59700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -617,34 +619,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="57" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+        <state relative-caret-position="355">
+          <caret line="284" column="85" selection-start-line="284" selection-start-column="85" selection-end-line="284" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1022">
+          <caret line="133" column="64" selection-start-line="133" selection-start-column="64" selection-end-line="133" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="100" column="56" lean-forward="true" selection-start-line="100" selection-start-column="56" selection-end-line="100" selection-end-column="56" />
+        <state relative-caret-position="297">
+          <caret line="102" column="50" lean-forward="true" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="117" column="35" selection-start-line="117" selection-start-column="35" selection-end-line="117" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="133" column="65" selection-start-line="133" selection-start-column="65" selection-end-line="133" selection-end-column="65" />
+        <state relative-caret-position="546">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
         </state>
       </provider>
     </entry>

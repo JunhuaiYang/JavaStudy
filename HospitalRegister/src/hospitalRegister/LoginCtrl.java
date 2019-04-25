@@ -65,7 +65,6 @@ public class LoginCtrl {
         if (group.getSelectedToggle() != null) {
             try {
                 if (group.getSelectedToggle().getUserData().toString().equals("Doctor")) {
-                    System.out.println("d");
                     doctorLogin();
                 }
                 if (group.getSelectedToggle().getUserData().toString().equals("Patient")) {
@@ -90,17 +89,17 @@ public class LoginCtrl {
             if (!result.next()) {
                 alertErrorDialog("用户不存在");
                 return;
-            } else if (!result.getString(Config.NameTableColumnDoctorPassword).equals(inputPassword.getText())) {
+            } else if (!result.getString(Config.ColumnDoctorPassword).equals(inputPassword.getText())) {
                 alertErrorDialog("密码错误");
                 return;
             }
 
-            DoctorCtrl.doctorName = result.getString(Config.NameTableColumnDoctorName);
-            DoctorCtrl.doctorNumber = result.getString(Config.NameTableColumnDoctorNumber);
-            DoctorCtrl.lastLogin = result.getString(Config.NameTableColumnDoctorLastLogin);
+            DoctorCtrl.doctorName = result.getString(Config.ColumnDoctorName);
+            DoctorCtrl.doctorNumber = result.getString(Config.ColumnDoctorNumber);
+            DoctorCtrl.lastLogin = result.getString(Config.ColumnDoctorLastLogin);
 
             DBConnector.getInstance().updateDoctorLoginTime(
-                    result.getString(Config.NameTableColumnDoctorNumber),
+                    result.getString(Config.ColumnDoctorNumber),
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Doctor.fxml")));
@@ -123,19 +122,19 @@ public class LoginCtrl {
             if (!result.next()) {
                 alertErrorDialog("用户不存在");
                 return;
-            } else if (!result.getString(Config.NameTableColumnPatientPassword).equals(inputPassword.getText())) {
+            } else if (!result.getString(Config.ColumnPatientPassword).equals(inputPassword.getText())) {
                 alertErrorDialog("密码错误");
                 return;
             }
 
             // fill info and login to patient page
-            PatientCtrl.patientName = result.getString(Config.NameTableColumnPatientName);
-            PatientCtrl.patientBalance = result.getDouble(Config.NameTableColumnPatientBalance);
-            PatientCtrl.patientNumber = result.getString(Config.NameTableColumnPatientNumber);
-            PatientCtrl.lastLogin = result.getString(Config.NameTableColumnPatientLastLogin);
+            PatientCtrl.patientName = result.getString(Config.ColumnPatientName);
+            PatientCtrl.patientBalance = result.getDouble(Config.ColumnPatientBalance);
+            PatientCtrl.patientNumber = result.getString(Config.ColumnPatientNumber);
+            PatientCtrl.lastLogin = result.getString(Config.ColumnPatientLastLogin);
 
             DBConnector.getInstance().updatePatientLoginTime(
-                    result.getString(Config.NameTableColumnPatientNumber),
+                    result.getString(Config.ColumnPatientNumber),
                     LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Patient.fxml")));

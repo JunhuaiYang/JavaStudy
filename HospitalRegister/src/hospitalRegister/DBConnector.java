@@ -61,12 +61,12 @@ public class DBConnector {
     public String getPatientPassword(String number) {
         try {
             ResultSet res =  statement.executeQuery(
-                    "select " + Config.NameTableColumnPatientPassword +
+                    "select " + Config.ColumnPatientPassword +
                             " from " + Config.TablePatient +
-                            " where " + Config.NameTableColumnPatientNumber + "=" + number);
+                            " where " + Config.ColumnPatientNumber + "=" + number);
             if (!res.next())
                 return null;
-            return res.getString(Config.NameTableColumnPatientPassword);
+            return res.getString(Config.ColumnPatientPassword);
         } catch (SQLException e){
             e.printStackTrace();
             return null;
@@ -77,7 +77,7 @@ public class DBConnector {
         try {
             return statement.executeQuery(
                     "select * from " + Config.TablePatient +
-                            " where " + Config.NameTableColumnPatientNumber + "=" + number);
+                            " where " + Config.ColumnPatientNumber + "=" + number);
         } catch (SQLException e) {
             return null;
         }
@@ -87,7 +87,7 @@ public class DBConnector {
         try {
             return statement.executeQuery(
                     "select * from " + Config.TableDoctor +
-                            " where " + Config.NameTableColumnDoctorNumber + "=" + number);
+                            " where " + Config.ColumnDoctorNumber + "=" + number);
         } catch (SQLException e) {
             return null;
         }
@@ -113,50 +113,50 @@ public class DBConnector {
             // decide the register id
             ResultSet result = transactionStatement.executeQuery(
                     "select * from " + Config.TableRegister +
-                            " order by " + Config.NameTableColumnRegisterNumber +
+                            " order by " + Config.ColumnRegisterNumber +
                             " desc limit 1"
             );
             int regNumber, currentCount;
             if (!result.next())
                 regNumber = 0;
             else
-                regNumber = Integer.parseInt(result.getString(Config.NameTableColumnRegisterNumber)) + 1;
+                regNumber = Integer.parseInt(result.getString(Config.ColumnRegisterNumber)) + 1;
 
             result = transactionStatement.executeQuery(
                     "select * from " +  Config.TableRegister +
-                            " where " + Config.NameTableColumnRegisterCategoryNumber +
+                            " where " + Config.ColumnRegisterCategoryNumber +
                             "=" + registerCategoryNumber +
-                            " order by " + Config.NameTableColumnCategoryRegisterNumber +
+                            " order by " + Config.ColumnCategoryRegisterNumber +
                             " desc limit 1"
             );
             if(!result.next())
                 currentCount = 0;
              else
-                currentCount = result.getInt(Config.NameTableColumnRegisterCurrentRegisterCount);
+                currentCount = result.getInt(Config.ColumnRegisterCurrentRegisterCount);
 
             // decide patient id
             result = transactionStatement.executeQuery(
                     "select * from " + Config.TablePatient +
-                            " where " + Config.NameTableColumnPatientNumber +
+                            " where " + Config.ColumnPatientNumber +
                             "=" + patientNumber
             );
             if(!result.next())
                 throw new RegisterException("patient does not exist", RegisterException.ErrorCode.patientNotExist);
 
-            double balance = result.getDouble(Config.NameTableColumnPatientBalance);
+            double balance = result.getDouble(Config.ColumnPatientBalance);
 
             // decide if exceeded the max register count
             result = transactionStatement.executeQuery(
-                    "select " + Config.NameTableColumnCategoryRegisterMaxRegisterNumber +
+                    "select " + Config.ColumnCategoryRegisterMaxRegisterNumber +
                             " from " + Config.TableCategoryRegister +
-                            " where " + Config.NameTableColumnCategoryRegisterNumber +
+                            " where " + Config.ColumnCategoryRegisterNumber +
                             "=" + registerCategoryNumber
             );
             int maxRegCount;
             if(!result.next())
                 throw new RegisterException("illegal table entry",
                         RegisterException.ErrorCode.registerCategoryNotFound);
-            maxRegCount = result.getInt(Config.NameTableColumnCategoryRegisterMaxRegisterNumber);
+            maxRegCount = result.getInt(Config.ColumnCategoryRegisterMaxRegisterNumber);
 
             if(currentCount > maxRegCount) {
                 throw new RegisterException("max register number reached",
@@ -182,9 +182,9 @@ public class DBConnector {
                 transactionStatement.executeUpdate(
                         String.format("update %s set %s=%.2f where %s=%s",
                                 Config.TablePatient,
-                                Config.NameTableColumnPatientBalance,
+                                Config.ColumnPatientBalance,
                                 (balance -= registerFee),
-                                Config.NameTableColumnPatientNumber,
+                                Config.ColumnPatientNumber,
                                 patientNumber)
                 );
             }
@@ -193,9 +193,9 @@ public class DBConnector {
                 transactionStatement.executeUpdate(
                         String.format("update %s set %s=%.2f where %s=%s",
                                 Config.TablePatient,
-                                Config.NameTableColumnPatientBalance,
+                                Config.ColumnPatientBalance,
                                 (balance += addToBalance),
-                                Config.NameTableColumnPatientNumber,
+                                Config.ColumnPatientNumber,
                                 patientNumber)
                 );
             }
@@ -213,34 +213,34 @@ public class DBConnector {
 
     public ResultSet getRegisterForDoctor(String docNumber, String startTime, String endTime) {
         try {
-                    String sql = "select reg." + Config.NameTableColumnRegisterNumber +
-                            ",pat." + Config.NameTableColumnPatientName +
-                            ",reg." + Config.NameTableColumnRegisterDateTime +
-                            ",cat." + Config.NameTableColumnCategoryRegisterIsSpecialist + (
-                            " from (select " + Config.NameTableColumnRegisterNumber +
-                                    "," + Config.NameTableColumnRegisterPatientNumber +
-                                    "," + Config.NameTableColumnRegisterDateTime +
-                                    "," + Config.NameTableColumnRegisterCategoryNumber +
+                    String sql = "select reg." + Config.ColumnRegisterNumber +
+                            ",pat." + Config.ColumnPatientName +
+                            ",reg." + Config.ColumnRegisterDateTime +
+                            ",cat." + Config.ColumnCategoryRegisterIsSpecialist + (
+                            " from (select " + Config.ColumnRegisterNumber +
+                                    "," + Config.ColumnRegisterPatientNumber +
+                                    "," + Config.ColumnRegisterDateTime +
+                                    "," + Config.ColumnRegisterCategoryNumber +
                                     " from " + Config.TableRegister +
-                                    " where " + Config.NameTableColumnRegisterDoctorNumber +
+                                    " where " + Config.ColumnRegisterDoctorNumber +
                                     "=" + docNumber +
-                                    " and " + Config.NameTableColumnRegisterDateTime +
+                                    " and " + Config.ColumnRegisterDateTime +
                                     ">=\"" + startTime +
-                                    "\" and " + Config.NameTableColumnRegisterDateTime +
+                                    "\" and " + Config.ColumnRegisterDateTime +
                                     "<=\"" + endTime +
                                     "\") as reg" ) + (
-                            " inner join (select " + Config.NameTableColumnPatientNumber +
-                                    "," + Config.NameTableColumnPatientName +
+                            " inner join (select " + Config.ColumnPatientNumber +
+                                    "," + Config.ColumnPatientName +
                                     " from " + Config.TablePatient +
                                     ") as pat" ) +
-                            " on reg." + Config.NameTableColumnRegisterPatientNumber +
-                            "=pat." + Config.NameTableColumnPatientNumber + (
-                            " inner join (select " + Config.NameTableColumnCategoryRegisterNumber +
-                                    "," + Config.NameTableColumnCategoryRegisterIsSpecialist +
+                            " on reg." + Config.ColumnRegisterPatientNumber +
+                            "=pat." + Config.ColumnPatientNumber + (
+                            " inner join (select " + Config.ColumnCategoryRegisterNumber +
+                                    "," + Config.ColumnCategoryRegisterIsSpecialist +
                                     " from " + Config.TableCategoryRegister +
                                     ") as cat" ) +
-                            " on reg." + Config.NameTableColumnRegisterCategoryNumber +
-                            "=cat." + Config.NameTableColumnCategoryRegisterNumber;
+                            " on reg." + Config.ColumnRegisterCategoryNumber +
+                            "=cat." + Config.ColumnCategoryRegisterNumber;
             return statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -250,43 +250,43 @@ public class DBConnector {
 
     public ResultSet getIncomeInfo(String startTime, String endTime) {
         try {
-                    String sql = "select dep." + Config.NameTableColumnDepartmentName +
-                            " as depname,reg." + Config.NameTableColumnRegisterDoctorNumber +
-                            ",doc." + Config.NameTableColumnDoctorName +
-                            " as docname,cat." + Config.NameTableColumnCategoryRegisterIsSpecialist +
-                            ",reg." + Config.NameTableColumnRegisterCurrentRegisterCount +
-                            ",SUM(reg." + Config.NameTableColumnRegisterFee +
+                    String sql = "select dep." + Config.ColumnDepartmentName +
+                            " as depname,reg." + Config.ColumnRegisterDoctorNumber +
+                            ",doc." + Config.ColumnDoctorName +
+                            " as docname,cat." + Config.ColumnCategoryRegisterIsSpecialist +
+                            ",reg." + Config.ColumnRegisterCurrentRegisterCount +
+                            ",SUM(reg." + Config.ColumnRegisterFee +
                             ") as sum from" + (
                             " (select * from " + Config.TableRegister +
-                                    " where " + Config.NameTableColumnRegisterDateTime +
+                                    " where " + Config.ColumnRegisterDateTime +
                                     ">=\"" + startTime +
-                                    "\" and " + Config.NameTableColumnRegisterDateTime +
+                                    "\" and " + Config.ColumnRegisterDateTime +
                                     "<=\"" + endTime +
                                     "\") as reg") +
                             " inner join" + (
-                            " (select " + Config.NameTableColumnDoctorNumber +
-                                    "," + Config.NameTableColumnDoctorName +
-                                    "," + Config.NameTableColumnDoctorDepartmentNumber +
+                            " (select " + Config.ColumnDoctorNumber +
+                                    "," + Config.ColumnDoctorName +
+                                    "," + Config.ColumnDoctorDepartmentNumber +
                                     " from " + Config.TableDoctor +
                                     ") as doc") +
-                            " on reg." + Config.NameTableColumnRegisterDoctorNumber +
-                            "=doc." + Config.NameTableColumnDoctorNumber +
+                            " on reg." + Config.ColumnRegisterDoctorNumber +
+                            "=doc." + Config.ColumnDoctorNumber +
                             " inner join" + (
-                            " (select " + Config.NameTableColumnDepartmentNumber +
-                                    "," + Config.NameTableColumnDepartmentName +
+                            " (select " + Config.ColumnDepartmentNumber +
+                                    "," + Config.ColumnDepartmentName +
                                     " from " + Config.TableDepartment +
                                     ") as dep") +
-                            " on doc." + Config.NameTableColumnDoctorDepartmentNumber +
-                            "=dep." + Config.NameTableColumnDepartmentNumber +
+                            " on doc." + Config.ColumnDoctorDepartmentNumber +
+                            "=dep." + Config.ColumnDepartmentNumber +
                             " inner join" + (
-                            " (select " + Config.NameTableColumnCategoryRegisterNumber +
-                                    "," + Config.NameTableColumnCategoryRegisterIsSpecialist +
+                            " (select " + Config.ColumnCategoryRegisterNumber +
+                                    "," + Config.ColumnCategoryRegisterIsSpecialist +
                                     " from " + Config.TableCategoryRegister +
                                     ") as cat" ) +
-                            " on reg." + Config.NameTableColumnRegisterCategoryNumber +
-                            "=cat." + Config.NameTableColumnCategoryRegisterNumber +
-                            " group by reg." + Config.NameTableColumnRegisterDoctorNumber +
-                            ",cat." + Config.NameTableColumnCategoryRegisterIsSpecialist;
+                            " on reg." + Config.ColumnRegisterCategoryNumber +
+                            "=cat." + Config.ColumnCategoryRegisterNumber +
+                            " group by reg." + Config.ColumnRegisterDoctorNumber +
+                            ",cat." + Config.ColumnCategoryRegisterIsSpecialist;
             return statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -298,9 +298,9 @@ public class DBConnector {
         try {
             statement.executeUpdate(
                     "update " + Config.TablePatient +
-                            " set " + Config.NameTableColumnPatientLastLogin +
+                            " set " + Config.ColumnPatientLastLogin +
                             "=\"" + time +
-                            "\" where " + Config.NameTableColumnPatientNumber +
+                            "\" where " + Config.ColumnPatientNumber +
                             "=" + patientId
             );
         } catch (SQLException e) {
@@ -313,9 +313,9 @@ public class DBConnector {
          try {
             statement.executeUpdate(
                     "update " + Config.TableDoctor +
-                            " set " + Config.NameTableColumnDoctorLastLogin +
+                            " set " + Config.ColumnDoctorLastLogin +
                             "=\"" + time +
-                            "\" where " + Config.NameTableColumnRegisterDoctorNumber+
+                            "\" where " + Config.ColumnRegisterDoctorNumber +
                             "=" + doctorId
             );
         } catch (SQLException e) {

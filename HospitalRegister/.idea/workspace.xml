@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="更改前">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/DateConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/DateConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Doctor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Doctor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/DoctorController$Income.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/DoctorController$Register.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/DoctorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameDepartment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameDepartment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameDoctor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameDoctor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemNameRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemTypeRegister.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/ListItemTypeRegister.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/Patient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/PatientController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/PatientController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HospitalRegister/hospitalRegister/TryRegisterService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/Patient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/Patient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/DBConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,72 +59,46 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1266915594">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.opened" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="15" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Login.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="357">
               <caret line="17" column="247" selection-start-line="17" selection-start-column="247" selection-end-line="17" selection-end-column="247" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="2016">
+            <state relative-caret-position="2352">
               <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Patient.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="2574">
-              <caret line="143" column="24" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
+            <state relative-caret-position="457">
+              <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="387" column="51" lean-forward="true" selection-start-line="387" selection-start-column="51" selection-end-line="387" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -154,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
+            <state relative-caret-position="378">
+              <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,20 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="131" column="39" lean-forward="true" selection-start-line="131" selection-start-column="39" selection-end-line="131" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="584">
-              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+            <state relative-caret-position="641">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -184,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6804">
+            <state relative-caret-position="7812">
               <caret line="378" selection-start-line="378" selection-end-line="378" />
             </state>
           </provider>
@@ -193,8 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+            <state relative-caret-position="147">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -202,8 +145,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DBConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+            <state relative-caret-position="84">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -217,6 +160,21 @@
         <option value="FxmlFile" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>sliderPay</find>
+      <find>updateRefund</find>
+      <find>inputNameDoctor</find>
+      <find>inputNameDepartment</find>
+      <find>inputUsername</find>
+      <find>columnRegisterType</find>
+      <find>PayMoney</find>
+      <find>inputNameRegister</find>
+      <find>reFilterRegisterType</find>
+      <find>checkBoxUseBalance</find>
+      <find>updateUseBalance</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -235,24 +193,19 @@
         <option value="$PROJECT_DIR$/src/hospitalRegister/main.css" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/sample.fxml" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/DoctorController.java" />
-        <option value="$PROJECT_DIR$/src/hospitalRegister/Config.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/DBConnector.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Main.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/PatientController.java" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Main.css" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/LoginController.java" />
-        <option value="$PROJECT_DIR$/src/hospitalRegister/Patient.fxml" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/Login.fxml" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/Config.java" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java" />
+        <option value="$PROJECT_DIR$/src/hospitalRegister/Patient.fxml" />
         <option value="$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
@@ -270,6 +223,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,8 +266,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -326,7 +279,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556094856757" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556095403541" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../资料/JavaExperiment/lab2" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -367,7 +320,7 @@
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -396,6 +349,7 @@
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -404,7 +358,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="moduleWithDependencies" />
@@ -415,11 +370,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -455,12 +410,14 @@
       <workItem from="1556030250648" duration="1245000" />
       <workItem from="1556066516651" duration="25000" />
       <workItem from="1556089448227" duration="283000" />
-      <workItem from="1556094285768" duration="568000" />
+      <workItem from="1556094285768" duration="1151000" />
+      <workItem from="1556118422143" duration="1714000" />
+      <workItem from="1556168596510" duration="8046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45000000" />
+    <option name="totallyTimeSpent" value="55343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -472,10 +429,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1455" height="935" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19255547" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19669509" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -484,7 +440,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917705" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14962594" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.14859003" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -495,7 +451,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32917705" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3286334" />
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.11930586" />
@@ -514,9 +470,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -595,8 +548,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        <state relative-caret-position="252">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2062">
+          <caret line="234" column="18" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
+          <folding>
+            <element signature="e#10065#10066#0" expanded="true" />
+            <element signature="e#10148#10149#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DBConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Login.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="247" selection-start-line="17" selection-start-column="247" selection-end-line="17" selection-end-column="247" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7812">
+          <caret line="378" selection-start-line="378" selection-end-line="378" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/collections/FXCollections.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="80" column="13" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -605,7 +622,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Doctor.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="2016">
+        <state relative-caret-position="2352">
           <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
         </state>
       </provider>
@@ -613,62 +630,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Patient.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="2574">
-          <caret line="143" column="24" selection-start-line="143" selection-start-column="24" selection-end-line="143" selection-end-column="24" />
+        <state relative-caret-position="457">
+          <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DoctorCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6804">
-          <caret line="378" selection-start-line="378" selection-end-line="378" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/DBConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/LoginCtrl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hospitalRegister/Login.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="247" selection-start-line="17" selection-start-column="247" selection-end-line="17" selection-end-column="247" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hospitalRegister/PatientCtrl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="131" column="39" lean-forward="true" selection-start-line="131" selection-start-column="39" selection-end-line="131" selection-end-column="39" />
+        <state relative-caret-position="305">
+          <caret line="387" column="51" lean-forward="true" selection-start-line="387" selection-start-column="51" selection-end-line="387" selection-end-column="51" />
         </state>
       </provider>
     </entry>

@@ -49,11 +49,17 @@ public class LoginCtrl {
                 Login();
         });
 
+        inputPassword.setOnKeyReleased(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER)
+                Login();
+        });
+
 
     }
 
     @FXML
     void Login() {
+        buttonLogin.setText("登录中...");
         if (!validateUserNameAndPassword())
             return;
         if (group.getSelectedToggle() != null) {
@@ -147,7 +153,6 @@ public class LoginCtrl {
             alertWarningDialog("请输入密码");
             return false;
         }
-        buttonLogin.setText("登录中...");
 
         return true;
     }

@@ -62,7 +62,7 @@ public class DBConnector {
         try {
             ResultSet res =  statement.executeQuery(
                     "select " + Config.NameTableColumnPatientPassword +
-                            " from " + Config.NameTablePatient +
+                            " from " + Config.TablePatient +
                             " where " + Config.NameTableColumnPatientNumber + "=" + number);
             if (!res.next())
                 return null;
@@ -76,7 +76,7 @@ public class DBConnector {
     public ResultSet getPatientInfo(String number) {
         try {
             return statement.executeQuery(
-                    "select * from " + Config.NameTablePatient +
+                    "select * from " + Config.TablePatient +
                             " where " + Config.NameTableColumnPatientNumber + "=" + number);
         } catch (SQLException e) {
             return null;
@@ -86,7 +86,7 @@ public class DBConnector {
     public ResultSet getDoctorInfo(String number) {
         try {
             return statement.executeQuery(
-                    "select * from " + Config.NameTableDoctor +
+                    "select * from " + Config.TableDoctor +
                             " where " + Config.NameTableColumnDoctorNumber + "=" + number);
         } catch (SQLException e) {
             return null;
@@ -112,7 +112,7 @@ public class DBConnector {
         try{
             // decide the register id
             ResultSet result = transactionStatement.executeQuery(
-                    "select * from " + Config.NameTableRegister +
+                    "select * from " + Config.TableRegister +
                             " order by " + Config.NameTableColumnRegisterNumber +
                             " desc limit 1"
             );
@@ -123,7 +123,7 @@ public class DBConnector {
                 regNumber = Integer.parseInt(result.getString(Config.NameTableColumnRegisterNumber)) + 1;
 
             result = transactionStatement.executeQuery(
-                    "select * from " +  Config.NameTableRegister +
+                    "select * from " +  Config.TableRegister +
                             " where " + Config.NameTableColumnRegisterCategoryNumber +
                             "=" + registerCategoryNumber +
                             " order by " + Config.NameTableColumnCategoryRegisterNumber +
@@ -136,7 +136,7 @@ public class DBConnector {
 
             // decide patient id
             result = transactionStatement.executeQuery(
-                    "select * from " + Config.NameTablePatient +
+                    "select * from " + Config.TablePatient +
                             " where " + Config.NameTableColumnPatientNumber +
                             "=" + patientNumber
             );
@@ -148,7 +148,7 @@ public class DBConnector {
             // decide if exceeded the max register count
             result = transactionStatement.executeQuery(
                     "select " + Config.NameTableColumnCategoryRegisterMaxRegisterNumber +
-                            " from " + Config.NameTableCategoryRegister +
+                            " from " + Config.TableCategoryRegister +
                             " where " + Config.NameTableColumnCategoryRegisterNumber +
                             "=" + registerCategoryNumber
             );
@@ -167,7 +167,7 @@ public class DBConnector {
             transactionStatement.executeUpdate(
                     String.format(
                             "insert into %s values (\"%06d\",\"%s\",\"%s\",\"%s\",%d,false,%s, current_timestamp)",
-                            Config.NameTableRegister,
+                            Config.TableRegister,
                             regNumber,
                             registerCategoryNumber,
                             doctorNumber,
@@ -181,7 +181,7 @@ public class DBConnector {
             if(deductFromBalance){
                 transactionStatement.executeUpdate(
                         String.format("update %s set %s=%.2f where %s=%s",
-                                Config.NameTablePatient,
+                                Config.TablePatient,
                                 Config.NameTableColumnPatientBalance,
                                 (balance -= registerFee),
                                 Config.NameTableColumnPatientNumber,
@@ -192,7 +192,7 @@ public class DBConnector {
             if(addToBalance != 0) {
                 transactionStatement.executeUpdate(
                         String.format("update %s set %s=%.2f where %s=%s",
-                                Config.NameTablePatient,
+                                Config.TablePatient,
                                 Config.NameTableColumnPatientBalance,
                                 (balance += addToBalance),
                                 Config.NameTableColumnPatientNumber,
@@ -221,7 +221,7 @@ public class DBConnector {
                                     "," + Config.NameTableColumnRegisterPatientNumber +
                                     "," + Config.NameTableColumnRegisterDateTime +
                                     "," + Config.NameTableColumnRegisterCategoryNumber +
-                                    " from " + Config.NameTableRegister +
+                                    " from " + Config.TableRegister +
                                     " where " + Config.NameTableColumnRegisterDoctorNumber +
                                     "=" + docNumber +
                                     " and " + Config.NameTableColumnRegisterDateTime +
@@ -231,13 +231,13 @@ public class DBConnector {
                                     "\") as reg" ) + (
                             " inner join (select " + Config.NameTableColumnPatientNumber +
                                     "," + Config.NameTableColumnPatientName +
-                                    " from " + Config.NameTablePatient +
+                                    " from " + Config.TablePatient +
                                     ") as pat" ) +
                             " on reg." + Config.NameTableColumnRegisterPatientNumber +
                             "=pat." + Config.NameTableColumnPatientNumber + (
                             " inner join (select " + Config.NameTableColumnCategoryRegisterNumber +
                                     "," + Config.NameTableColumnCategoryRegisterIsSpecialist +
-                                    " from " + Config.NameTableCategoryRegister +
+                                    " from " + Config.TableCategoryRegister +
                                     ") as cat" ) +
                             " on reg." + Config.NameTableColumnRegisterCategoryNumber +
                             "=cat." + Config.NameTableColumnCategoryRegisterNumber;
@@ -257,7 +257,7 @@ public class DBConnector {
                             ",reg." + Config.NameTableColumnRegisterCurrentRegisterCount +
                             ",SUM(reg." + Config.NameTableColumnRegisterFee +
                             ") as sum from" + (
-                            " (select * from " + Config.NameTableRegister +
+                            " (select * from " + Config.TableRegister +
                                     " where " + Config.NameTableColumnRegisterDateTime +
                                     ">=\"" + startTime +
                                     "\" and " + Config.NameTableColumnRegisterDateTime +
@@ -267,21 +267,21 @@ public class DBConnector {
                             " (select " + Config.NameTableColumnDoctorNumber +
                                     "," + Config.NameTableColumnDoctorName +
                                     "," + Config.NameTableColumnDoctorDepartmentNumber +
-                                    " from " + Config.NameTableDoctor +
+                                    " from " + Config.TableDoctor +
                                     ") as doc") +
                             " on reg." + Config.NameTableColumnRegisterDoctorNumber +
                             "=doc." + Config.NameTableColumnDoctorNumber +
                             " inner join" + (
                             " (select " + Config.NameTableColumnDepartmentNumber +
                                     "," + Config.NameTableColumnDepartmentName +
-                                    " from " + Config.NameTableDepartment +
+                                    " from " + Config.TableDepartment +
                                     ") as dep") +
                             " on doc." + Config.NameTableColumnDoctorDepartmentNumber +
                             "=dep." + Config.NameTableColumnDepartmentNumber +
                             " inner join" + (
                             " (select " + Config.NameTableColumnCategoryRegisterNumber +
                                     "," + Config.NameTableColumnCategoryRegisterIsSpecialist +
-                                    " from " + Config.NameTableCategoryRegister +
+                                    " from " + Config.TableCategoryRegister +
                                     ") as cat" ) +
                             " on reg." + Config.NameTableColumnRegisterCategoryNumber +
                             "=cat." + Config.NameTableColumnCategoryRegisterNumber +
@@ -297,7 +297,7 @@ public class DBConnector {
     public void updatePatientLoginTime(String patientId, String time){
         try {
             statement.executeUpdate(
-                    "update " + Config.NameTablePatient +
+                    "update " + Config.TablePatient +
                             " set " + Config.NameTableColumnPatientLastLogin +
                             "=\"" + time +
                             "\" where " + Config.NameTableColumnPatientNumber +
@@ -312,7 +312,7 @@ public class DBConnector {
     public void updateDoctorLoginTime(String doctorId, String time){
          try {
             statement.executeUpdate(
-                    "update " + Config.NameTableDoctor +
+                    "update " + Config.TableDoctor +
                             " set " + Config.NameTableColumnDoctorLastLogin +
                             "=\"" + time +
                             "\" where " + Config.NameTableColumnRegisterDoctorNumber+

@@ -117,8 +117,8 @@ public class PatientCtrl {
     static public String patientNumber;
     static public Double patientBalance;
 
+    @FXML private JFXComboBox<String> PayMoney;
     @FXML private GridPane mainPane;
-
     @FXML private Label labelWelcome;
     @FXML private JFXComboBox<String> inputNameDepartment;
     @FXML private JFXComboBox<String> inputNameDoctor;
@@ -127,7 +127,6 @@ public class PatientCtrl {
     @FXML private Label labelFee;
     @FXML private Label labelRefund;
     @FXML private Label labelStatus;
-    @FXML private JFXSlider sliderPay;
     @FXML private JFXButton buttonRegister;
     @FXML private JFXButton buttonExit;
     @FXML private JFXCheckBox checkBoxUseBalance;
@@ -190,19 +189,19 @@ public class PatientCtrl {
 
     public void updateData() {
         updateOneSetOfData(
-                Config.NameTableDepartment,
+                Config.TableDepartment,
                 listNameDepartment,
                 ListItemNameDepartment.class
         );
 
         updateOneSetOfData(
-                Config.NameTableDoctor,
+                Config.TableDoctor,
                 listNameDoctor,
                 ListItemNameDoctor.class
         );
 
         updateOneSetOfData(
-                Config.NameTableCategoryRegister,
+                Config.TableCategoryRegister,
                 listNameRegister,
                 ListItemNameRegister.class
         );
@@ -221,16 +220,19 @@ public class PatientCtrl {
     }
 
 
+    /**
+     * 更新找零
+     */
     private void updateRefund(){
         int index = inputNameRegister.getSelectionModel().getSelectedIndex();
         if(index != -1 && checkBoxUseBalance.isSelected()){
-            labelRefund.setText("0¥");
+            labelRefund.setText("¥ 0");
             labelRefund.setStyle("");
             return;
         }
 
-        if(index != -1 && sliderPay.getValue() > listNameRegisterFiltered.get(index).fee) {
-            labelRefund.setText(String.format("%.2f¥", sliderPay.getValue() - listNameRegisterFiltered.get(index).fee));
+        if(index != -1 && Integer.parseInt(PayMoney.getEditor().getText()) > listNameRegisterFiltered.get(index).fee) {
+            labelRefund.setText(String.format("¥ %.2f", Integer.parseInt(PayMoney.getEditor().getText()) - listNameRegisterFiltered.get(index).fee));
             labelRefund.setStyle("");
         } else if (index != -1) {
             labelRefund.setText("交款金额不足");
@@ -243,7 +245,7 @@ public class PatientCtrl {
         if (index != -1 && patientBalance < listNameRegisterFiltered.get(index).fee){
             // fore to use cash
             checkBoxUseBalance.setSelected(false);
-            sliderPay.setDisable(false);
+            PayMoney.setDisable(false);
             checkBoxUseBalance.setText("余额不足");
             checkBoxUseBalance.setDisable(true);
         } else {
@@ -251,7 +253,7 @@ public class PatientCtrl {
             checkBoxUseBalance.setDisable(false);
             checkBoxUseBalance.setText("使用余额付款");
             checkBoxUseBalance.setSelected(true);
-            sliderPay.setDisable(true);
+            PayMoney.setDisable(true);
         }
     }
 
@@ -261,7 +263,7 @@ public class PatientCtrl {
         if (inputNameDoctor.getSelectionModel().getSelectedIndex() != -1 &&
                 (index = inputNameRegister.getSelectionModel().getSelectedIndex()) != -1 &&
                 ((checkBoxUseBalance.isSelected() && patientBalance >= listNameRegisterFiltered.get(index).fee) ||
-                        (!checkBoxUseBalance.isSelected() && sliderPay.getValue() >= listNameRegisterFiltered.get(index).fee)) ) {
+                        (!checkBoxUseBalance.isSelected() && Integer.parseInt(PayMoney.getEditor().getText()) >= listNameRegisterFiltered.get(index).fee)) ) {
             buttonRegister.setDisable(false);
         }
     }
@@ -269,17 +271,17 @@ public class PatientCtrl {
     @FXML
     void useBalanceClicked(){
         if (checkBoxUseBalance.isSelected()) {
-            sliderPay.setDisable(true);
+            PayMoney.setDisable(true);
             updateRefund();
         } else {
-            sliderPay.setDisable(false);
+            PayMoney.setDisable(false);
             updateRefund();
         }
         updateRegisterButton();
     }
 
     private void updateUserDisplayInfo() {
-        labelWelcome.setText(String.format("欢迎，%s！    余额：%.2f¥", patientName, patientBalance));
+        labelWelcome.setText(String.format("欢迎，%s！    余额：¥ %.2f", patientName, patientBalance));
     }
 
     @FXML
@@ -293,6 +295,8 @@ public class PatientCtrl {
         inputNameDoctor.setItems(FXCollections.observableArrayList());
         inputTypeRegister.setItems(FXCollections.observableArrayList());
         inputNameRegister.setItems(FXCollections.observableArrayList());
+        PayMoney.setValue("0");
+        PayMoney.getItems().addAll("10", "20", "50", "100");
         reFilterDepartment(false);
         reFilterDoctor(false);
         reFilterRegisterType(false);
@@ -436,6 +440,9 @@ public class PatientCtrl {
                 buttonRegisterPressed();
         });
 
+        PayMoney.addEventHandler(ComboBox.ON_HIDDEN, e->{
+            PayMoneyPressed();
+        });
 
         checkBoxUseBalance.setOnKeyReleased(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.SPACE)
@@ -447,11 +454,14 @@ public class PatientCtrl {
     }
 
     @FXML
-    private void sliderPayDragged(){
+    private void PayMoneyPressed(){
         updateRefund();
         updateRegisterButton();
     }
 
+    /**
+     * 挂号
+     */
     @FXML
     private void buttonRegisterPressed() {
         if (inputNameDoctor.getSelectionModel().getSelectedIndex() == -1){
@@ -468,7 +478,7 @@ public class PatientCtrl {
         if ( !( (index = inputNameRegister.getSelectionModel().getSelectedIndex()) != -1 &&
                 inputNameDoctor.getSelectionModel().getSelectedIndex() != -1 && (
                 (checkBoxUseBalance.isSelected() && patientBalance >= listNameRegisterFiltered.get(index).fee) ||
-                        (!checkBoxUseBalance.isSelected() && sliderPay.getValue() >= listNameRegisterFiltered.get(index).fee)))) {
+                        (!checkBoxUseBalance.isSelected() && Integer.parseInt(PayMoney.getEditor().getText()) >= listNameRegisterFiltered.get(index).fee)))) {
             // program should not run here
             statusError("缴费金额不足或余额不足");
             return;
@@ -483,7 +493,7 @@ public class PatientCtrl {
                 listNameRegisterFiltered.get(inputNameRegister.getSelectionModel().getSelectedIndex()).fee,
                 checkBoxUseBalance.isSelected(),
                 ( (!checkBoxUseBalance.isSelected() && checkBoxAddToBalance.isSelected() ) ?
-                        sliderPay.getValue() - listNameRegisterFiltered.get(index).fee : 0)
+                        Integer.parseInt(PayMoney.getEditor().getText()) - listNameRegisterFiltered.get(index).fee : 0)
         );
         service.setOnSucceeded(workerStateEvent -> {
             switch (service.returnCode){

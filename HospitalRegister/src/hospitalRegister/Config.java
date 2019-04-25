@@ -1,11 +1,11 @@
 package hospitalRegister;
 
 public class Config {
-    public static String NameTableDepartment = "department";
-    public static String NameTableDoctor = "doctor";
-    public static String NameTableCategoryRegister = "register_category";
-    public static String NameTablePatient = "patient";
-    public static String NameTableRegister = "register";
+    public static String TableDepartment = "department";
+    public static String TableDoctor = "doctor";
+    public static String TableCategoryRegister = "register_category";
+    public static String TablePatient = "patient";
+    public static String TableRegister = "register";
 
     public static String NameTableColumnDepartmentNumber = "depid";
     public static String NameTableColumnDepartmentName = "name";

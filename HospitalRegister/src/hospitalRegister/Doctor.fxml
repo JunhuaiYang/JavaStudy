@@ -22,13 +22,13 @@
 
 <GridPane alignment="CENTER" prefHeight="878.0" prefWidth="1212.0" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hospitalRegister.DoctorCtrl">
    <columnConstraints>
-      <ColumnConstraints halignment="LEFT" maxWidth="95.0" minWidth="-Infinity" prefWidth="93.0" />
-      <ColumnConstraints hgrow="NEVER" maxWidth="200.0" minWidth="-Infinity" prefWidth="167.0" />
-      <ColumnConstraints hgrow="NEVER" maxWidth="125.0" minWidth="-Infinity" prefWidth="67.0" />
-      <ColumnConstraints hgrow="NEVER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="81.0" />
-      <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="201.0" minWidth="-Infinity" prefWidth="179.0" />
-      <ColumnConstraints halignment="LEFT" maxWidth="125.0" minWidth="-Infinity" prefWidth="59.0" />
-      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" minWidth="-Infinity" prefWidth="1.0" />
+      <ColumnConstraints halignment="LEFT" maxWidth="131.0" minWidth="-Infinity" prefWidth="73.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="217.0" minWidth="-Infinity" prefWidth="146.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="125.0" minWidth="-Infinity" prefWidth="28.0" />
+      <ColumnConstraints hgrow="NEVER" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="75.0" />
+      <ColumnConstraints halignment="LEFT" hgrow="NEVER" maxWidth="325.0" minWidth="-Infinity" prefWidth="151.0" />
+      <ColumnConstraints halignment="LEFT" maxWidth="174.0" minWidth="-Infinity" prefWidth="19.0" />
+      <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="723.0" minWidth="-Infinity" prefWidth="720.0" />
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
@@ -98,7 +98,7 @@
             <Insets left="10.0" right="10.0" />
          </GridPane.margin>
       </Label>
-      <Label text="结束时间" GridPane.columnIndex="3" GridPane.rowIndex="3">
+      <Label text="结束时间" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
          </GridPane.margin>
@@ -108,7 +108,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </JFXDatePicker>
-      <Label text="开始时间" GridPane.rowIndex="3">
+      <Label text="开始时间" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
          </GridPane.margin>
@@ -118,15 +118,15 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </JFXDatePicker>
-      <GridPane GridPane.columnIndex="6" GridPane.columnSpan="6" GridPane.rowIndex="3">
+      <GridPane GridPane.columnIndex="6" GridPane.columnSpan="2147483647" GridPane.rowIndex="3">
         <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" minWidth="-Infinity" prefWidth="1.0" />
             <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
             <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="100.0" />
-          <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="250.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="290.0" minWidth="10.0" prefWidth="234.0" />
+          <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="-Infinity" prefWidth="286.0" />
         </columnConstraints>
          <children>
-            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttomFilterPressed" style="-fx-background-color: #959df3;" text="过滤 / 更新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttomFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>
@@ -134,12 +134,12 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXCheckBox fx:id="checkBoxAllTime" onAction="#checkBoxAllTimeSelected" text="全部时间" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <JFXCheckBox fx:id="checkBoxAllTime" onAction="#checkBoxAllTimeSelected" text="全部时间" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </JFXCheckBox>
-            <JFXCheckBox fx:id="checkBoxToday" onAction="#checkBoxTodaySelected" text="今天" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <JFXCheckBox fx:id="checkBoxToday" onAction="#checkBoxTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>

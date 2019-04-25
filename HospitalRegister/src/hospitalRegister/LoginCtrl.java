@@ -97,6 +97,7 @@ public class LoginCtrl {
 
             DoctorCtrl.doctorName = result.getString(Config.NameTableColumnDoctorName);
             DoctorCtrl.doctorNumber = result.getString(Config.NameTableColumnDoctorNumber);
+            DoctorCtrl.lastLogin = result.getString(Config.NameTableColumnDoctorLastLogin);
 
             DBConnector.getInstance().updateDoctorLoginTime(
                     result.getString(Config.NameTableColumnDoctorNumber),
@@ -131,6 +132,7 @@ public class LoginCtrl {
             PatientCtrl.patientName = result.getString(Config.NameTableColumnPatientName);
             PatientCtrl.patientBalance = result.getDouble(Config.NameTableColumnPatientBalance);
             PatientCtrl.patientNumber = result.getString(Config.NameTableColumnPatientNumber);
+            PatientCtrl.lastLogin = result.getString(Config.NameTableColumnPatientLastLogin);
 
             DBConnector.getInstance().updatePatientLoginTime(
                     result.getString(Config.NameTableColumnPatientNumber),

@@ -115,6 +115,7 @@ public class PatientCtrl {
     // basic patient info, initialized by LoginCtrl
     static public String patientName;
     static public String patientNumber;
+    static public String lastLogin;
     static public Double patientBalance;
 
     @FXML private JFXComboBox<String> PayMoney;
@@ -281,7 +282,7 @@ public class PatientCtrl {
     }
 
     private void updateUserDisplayInfo() {
-        labelWelcome.setText(String.format("欢迎，%s！    余额：¥ %.2f", patientName, patientBalance));
+        labelWelcome.setText(String.format("欢迎，%s！    余额：¥ %.2f       上次登录： %s", patientName, patientBalance, lastLogin));
     }
 
     @FXML

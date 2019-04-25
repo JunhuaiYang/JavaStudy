@@ -57,6 +57,7 @@ public class DoctorCtrl {
     // set by LoginCtrl
     public static String doctorName;
     public static String doctorNumber;
+    public static String lastLogin;
 
     @FXML private Label labelWelcome;
     @FXML private JFXDatePicker pickerDateStart;
@@ -93,7 +94,7 @@ public class DoctorCtrl {
 
     @FXML
     void initialize(){
-        labelWelcome.setText(String.format("欢迎，%s！", doctorName));
+        labelWelcome.setText(String.format("欢迎，%s！     上次登录： %s", doctorName, lastLogin));
 
         // set two date converter (formatter)
         pickerDateStart.setConverter(new DateConverter());

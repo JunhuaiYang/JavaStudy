@@ -134,8 +134,8 @@
                   <Font size="15.0" />
                </font>
             </JFXButton>
-            <JFXRadioButton fx:id="RadioButtonAllTime" mnemonicParsing="false" onAction="#checkBoxAllTimeSelected" prefHeight="15.0" prefWidth="112.0" text="全部时间" GridPane.rowIndex="1" />
-            <JFXRadioButton fx:id="RadioButtonToday" mnemonicParsing="false" onAction="#checkBoxTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXRadioButton fx:id="RadioButtonAllTime" mnemonicParsing="false" onAction="#RadioButtonAllTimeSelected" prefHeight="15.0" prefWidth="112.0" text="全部时间" GridPane.rowIndex="1" />
+            <JFXRadioButton fx:id="RadioButtonToday" mnemonicParsing="false" onAction="#RadioButtonTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
          <rowConstraints>
             <RowConstraints />

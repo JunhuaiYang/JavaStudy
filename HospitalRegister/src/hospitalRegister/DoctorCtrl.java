@@ -132,82 +132,22 @@ public class DoctorCtrl {
         rootIncome = new RecursiveTreeItem<>(listIncome, RecursiveTreeObject::getChildren);
         tableIncome.setRoot(rootIncome);
 
+        // 默认打开今天的信息
+        RadioButtonToday.setSelected(true);
+        RadioButtonTodaySelected();
+        showRegisterView();
+        showIncomeView();
+
     }
 
     @FXML
     private void buttonFilterPressed() {
         if(mainPane.getSelectionModel().getSelectedItem() == tabRegister) {  // 挂号列表
-            ResultSet result;
-            if (RadioButtonAllTime.isSelected()) {  // 所有时间
-                result = DBConnector.getInstance().getRegisterForDoctor(
-                        doctorNumber,
-                        "0000-00-00 00:00:00",
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                );
-            } else if (RadioButtonToday.isSelected()) {  // 今天
-                result = DBConnector.getInstance().getRegisterForDoctor(
-                        doctorNumber,
-                        LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                );
-            } else {
-                result = DBConnector.getInstance().getRegisterForDoctor(  // 选择时间
-                        doctorNumber,
-                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
-                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                );
-            }
-
-            try {
-                listRegister.clear();
-                while (result.next()) {
-                    listRegister.add(new Register(
-                            result.getString(Config.ColumnRegisterNumber),
-                            result.getString(Config.ColumnPatientName),
-                            result.getTimestamp(Config.ColumnRegisterDateTime),
-                            result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist)
-                    ));
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return;
-            }
+            // TODO 函数
+            showRegisterView();
         } else if (mainPane.getSelectionModel().getSelectedItem() == tabIncome) {  // 收入列表
-            ResultSet result;
-            if (RadioButtonAllTime.isSelected()) {
-                result = DBConnector.getInstance().getIncomeInfo(
-                        "0000-00-00 00:00:00",
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                );
-            } else if (RadioButtonToday.isSelected()) {
-                result = DBConnector.getInstance().getIncomeInfo(
-                        LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
-                        LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
-                );
-            } else {
-                result = DBConnector.getInstance().getIncomeInfo(
-                        pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
-                        pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                );
-            }
-
-            try {
-                listIncome.clear();
-                while (result.next()) {
-                    listIncome.add(new Income(
-                                    result.getString("depname"),
-                                    result.getString(Config.ColumnDoctorNumber),
-                                    result.getString("docname"),
-                                    result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist),
-                                    result.getInt(Config.ColumnRegisterCurrentRegisterCount),
-                                    result.getDouble("sum")
-                            )
-                    );
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return;
-            }
+            // TODO 函数
+            showIncomeView();
         }
     }
 
@@ -223,7 +163,7 @@ public class DoctorCtrl {
     }
 
     @FXML
-    void checkBoxAllTimeSelected(){
+    void RadioButtonAllTimeSelected(){
         if (RadioButtonAllTime.isSelected()) {
             RadioButtonToday.setSelected(false);
             pickerDateStart.setDisable(true);
@@ -235,7 +175,7 @@ public class DoctorCtrl {
     }
 
     @FXML
-    void checkBoxTodaySelected(){
+    void RadioButtonTodaySelected(){
         if (RadioButtonToday.isSelected()) {
             RadioButtonAllTime.setSelected(false);
             pickerDateStart.setDisable(true);
@@ -243,6 +183,83 @@ public class DoctorCtrl {
         } else if(!RadioButtonAllTime.isSelected()){
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
+        }
+    }
+
+    void showRegisterView(){
+        ResultSet result;
+        if (RadioButtonAllTime.isSelected()) {  // 所有时间
+            result = DBConnector.getInstance().getRegisterForDoctor(
+                    doctorNumber,
+                    "0000-00-00 00:00:00",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            );
+        } else if (RadioButtonToday.isSelected()) {  // 今天
+            result = DBConnector.getInstance().getRegisterForDoctor(
+                    doctorNumber,
+                    LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            );
+        } else {
+            result = DBConnector.getInstance().getRegisterForDoctor(  // 选择时间
+                    doctorNumber,
+                    pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
+                    pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            );
+        }
+
+        try {
+            listRegister.clear();
+            while (result.next()) {
+                listRegister.add(new Register(
+                        result.getString(Config.ColumnRegisterNumber),
+                        result.getString(Config.ColumnPatientName),
+                        result.getTimestamp(Config.ColumnRegisterDateTime),
+                        result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist)
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
+        }
+    }
+
+    void showIncomeView()
+    {
+        ResultSet result;
+        if (RadioButtonAllTime.isSelected()) {
+            result = DBConnector.getInstance().getIncomeInfo(
+                    "0000-00-00 00:00:00",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            );
+        } else if (RadioButtonToday.isSelected()) {
+            result = DBConnector.getInstance().getIncomeInfo(
+                    LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
+                    LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
+            );
+        } else {
+            result = DBConnector.getInstance().getIncomeInfo(
+                    pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
+                    pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            );
+        }
+
+        try {
+            listIncome.clear();
+            while (result.next()) {
+                listIncome.add(new Income(
+                                result.getString("depname"),
+                                result.getString(Config.ColumnDoctorNumber),
+                                result.getString("docname"),
+                                result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist),
+                                result.getInt(Config.ColumnRegisterCurrentRegisterCount),
+                                result.getDouble("sum")
+                        )
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return;
         }
     }
 }

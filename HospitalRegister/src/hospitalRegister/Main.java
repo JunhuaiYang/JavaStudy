@@ -23,7 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("挂号管理系统");
         primaryStage.setMinWidth(400);
         primaryStage.setMinHeight(190);
-        primaryStage.setResizable(false);
+//        primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

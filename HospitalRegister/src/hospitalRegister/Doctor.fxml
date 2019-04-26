@@ -103,7 +103,7 @@
             <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <JFXDatePicker fx:id="pickerDateEnd" accessibleText="4564" defaultColor="#9080c5" editable="false" prefWidth="130.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+      <JFXDatePicker fx:id="pickerDateEnd" accessibleText="4564" defaultColor="#9080c5" editable="false"  prefWidth="130.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
@@ -122,8 +122,9 @@
         <columnConstraints>
             <ColumnConstraints hgrow="NEVER" maxWidth="138.0" minWidth="-Infinity" prefWidth="135.0" />
             <ColumnConstraints hgrow="NEVER" maxWidth="127.0" minWidth="-Infinity" prefWidth="108.0" />
-            <ColumnConstraints hgrow="NEVER" maxWidth="290.0" minWidth="10.0" prefWidth="191.0" />
-          <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="-Infinity" prefWidth="286.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="290.0" minWidth="10.0" prefWidth="84.0" />
+          <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="-Infinity" prefWidth="240.0" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="10.0" prefWidth="153.0" />
         </columnConstraints>
          <children>
             <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttonFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
@@ -136,6 +137,7 @@
             </JFXButton>
             <JFXRadioButton fx:id="RadioButtonAllTime" mnemonicParsing="false" onAction="#RadioButtonAllTimeSelected" prefHeight="15.0" prefWidth="112.0" text="全部时间" GridPane.rowIndex="1" />
             <JFXRadioButton fx:id="RadioButtonToday" mnemonicParsing="false" onAction="#RadioButtonTodaySelected" text="今天" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXButton fx:id="buttonExit" buttonType="RAISED" mnemonicParsing="false" onMouseClicked="#buttonExitClicked" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #959df3;" stylesheets="@main.css" text="注销" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          </children>
          <rowConstraints>
             <RowConstraints />

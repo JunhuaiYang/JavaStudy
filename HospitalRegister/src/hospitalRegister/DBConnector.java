@@ -235,6 +235,7 @@ public class DBConnector {
                                     ") as cat" ) +
                             " on reg." + Config.ColumnRegisterCategoryNumber +
                             "=cat." + Config.ColumnCategoryRegisterNumber;
+            //System.out.println(sql);
             return statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();

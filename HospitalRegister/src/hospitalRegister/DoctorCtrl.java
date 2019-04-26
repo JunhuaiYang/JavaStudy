@@ -23,15 +23,17 @@ import java.time.format.DateTimeFormatter;
 
 
 public class DoctorCtrl {
+
+
     private static final class Register extends RecursiveTreeObject<Register> {
         public StringProperty number;
         public StringProperty namePatient;
         public StringProperty dateTimeDisplay;
         public StringProperty isSpecialistDisplay;
-        public Register(String number, String namePatient, Timestamp dateTime, boolean isSpecialist){
+        public Register(String number, String namePatient, String dateTime, boolean isSpecialist){
             this.number = new SimpleStringProperty(number);
             this.namePatient = new SimpleStringProperty(namePatient);
-            this.dateTimeDisplay = new SimpleStringProperty(dateTime.toLocalDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+            this.dateTimeDisplay = new SimpleStringProperty(dateTime);
             this.isSpecialistDisplay = new SimpleStringProperty(isSpecialist ? "专家号" : "普通号");
         }
     }
@@ -83,6 +85,7 @@ public class DoctorCtrl {
     @FXML JFXRadioButton RadioButtonAllTime;
     @FXML JFXRadioButton RadioButtonToday;
     @FXML JFXButton buttonFilter;
+    @FXML JFXButton buttonExit;
 
     private TreeItem<Register> rootRegister;
     private TreeItem<Income> rootIncome;
@@ -172,6 +175,8 @@ public class DoctorCtrl {
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
         }
+        showRegisterView();
+        showIncomeView();
     }
 
     @FXML
@@ -184,6 +189,8 @@ public class DoctorCtrl {
             pickerDateStart.setDisable(false);
             pickerDateEnd.setDisable(false);
         }
+        showRegisterView();
+        showIncomeView();
     }
 
     void showRegisterView(){
@@ -204,7 +211,7 @@ public class DoctorCtrl {
             result = DBConnector.getInstance().getRegisterForDoctor(  // 选择时间
                     doctorNumber,
                     pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
-                    pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 23:23:59"
             );
         }
 
@@ -214,9 +221,10 @@ public class DoctorCtrl {
                 listRegister.add(new Register(
                         result.getString(Config.ColumnRegisterNumber),
                         result.getString(Config.ColumnPatientName),
-                        result.getTimestamp(Config.ColumnRegisterDateTime),
+                        result.getString(Config.ColumnRegisterDateTime),
                         result.getBoolean(Config.ColumnCategoryRegisterIsSpecialist)
                 ));
+                //System.out.println(result.getString(Config.ColumnRegisterDateTime));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -262,6 +270,11 @@ public class DoctorCtrl {
             return;
         }
     }
+
+//    void DateClicked() {
+//        showRegisterView();
+//        showIncomeView();
+//    }
 }
 
 class DateConverter extends StringConverter<LocalDate> {

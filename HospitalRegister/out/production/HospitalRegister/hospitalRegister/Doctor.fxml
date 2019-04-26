@@ -126,7 +126,7 @@
           <ColumnConstraints hgrow="NEVER" maxWidth="500.0" minWidth="-Infinity" prefWidth="286.0" />
         </columnConstraints>
          <children>
-            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttomFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+            <JFXButton fx:id="buttonFilter" buttonType="RAISED" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#buttonFilterPressed" prefHeight="39.0" prefWidth="262.0" style="-fx-background-color: #959df3;" text="刷新" textFill="WHITE" GridPane.columnIndex="3" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </GridPane.margin>

@@ -45,6 +45,10 @@ public class DBConnector {
         connection.close();
     }
 
+    /**  获得全表内容
+     * @param tableName  表名
+     * @return ResultSet
+     */
     public ResultSet getWholeTable(String tableName){
         try {
             return statement.executeQuery("select * from " + tableName);
@@ -53,26 +57,11 @@ public class DBConnector {
         }
     }
 
-    /**
-     * get patient's password by patient id
-     * @param number
-     * @return null if patient not found, else the password
-     */
-    public String getPatientPassword(String number) {
-        try {
-            ResultSet res =  statement.executeQuery(
-                    "select " + Config.ColumnPatientPassword +
-                            " from " + Config.TablePatient +
-                            " where " + Config.ColumnPatientNumber + "=" + number);
-            if (!res.next())
-                return null;
-            return res.getString(Config.ColumnPatientPassword);
-        } catch (SQLException e){
-            e.printStackTrace();
-            return null;
-        }
-    }
 
+    /** 病人信息
+     * @param number
+     * @return
+     */
     public ResultSet getPatientInfo(String number) {
         try {
             return statement.executeQuery(
@@ -83,6 +72,10 @@ public class DBConnector {
         }
     }
 
+    /** 医生信息
+     * @param number
+     * @return
+     */
     public ResultSet getDoctorInfo(String number) {
         try {
             return statement.executeQuery(
@@ -94,6 +87,7 @@ public class DBConnector {
     }
 
     /**
+     * 尝试挂号
      * try adding register info to the database
      * @param registerCategoryNumber register category number
      * @param doctorNumber doctor number

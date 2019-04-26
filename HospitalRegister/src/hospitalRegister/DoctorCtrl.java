@@ -71,7 +71,7 @@ public class DoctorCtrl {
     @FXML private TreeTableColumn<Register, String> columnRegisterPatientName;
     @FXML private TreeTableColumn<Register, String> columnRegisterDateTime;
     @FXML private TreeTableColumn<Register, String> columnRegisterType;
-    private TreeItem<Register> rootRegister;
+
 
     @FXML private JFXTreeTableView<Income> tableIncome;
     @FXML private TreeTableColumn<Income, String> columnIncomeDepartmentName;
@@ -80,14 +80,15 @@ public class DoctorCtrl {
     @FXML private TreeTableColumn<Income, String> columnIncomeRegisterType;
     @FXML private TreeTableColumn<Income, String> columnIncomeRegisterPopulation;
     @FXML private TreeTableColumn<Income, String> columnIncomeSum;
-    private TreeItem<Income> rootIncome;
-
-    private ObservableList<Register> listRegister = FXCollections.observableArrayList();
-    private ObservableList<Income> listIncome = FXCollections.observableArrayList();
-
     @FXML JFXRadioButton RadioButtonAllTime;
     @FXML JFXRadioButton RadioButtonToday;
     @FXML JFXButton buttonFilter;
+
+    private TreeItem<Register> rootRegister;
+    private TreeItem<Income> rootIncome;
+    private ObservableList<Register> listRegister = FXCollections.observableArrayList();
+    private ObservableList<Income> listIncome = FXCollections.observableArrayList();
+
 
     @FXML
     void initialize(){
@@ -135,22 +136,22 @@ public class DoctorCtrl {
 
     @FXML
     private void buttonFilterPressed() {
-        if(mainPane.getSelectionModel().getSelectedItem() == tabRegister) {
+        if(mainPane.getSelectionModel().getSelectedItem() == tabRegister) {  // 挂号列表
             ResultSet result;
-            if (RadioButtonAllTime.isSelected()) {
+            if (RadioButtonAllTime.isSelected()) {  // 所有时间
                 result = DBConnector.getInstance().getRegisterForDoctor(
                         doctorNumber,
                         "0000-00-00 00:00:00",
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 );
-            } else if (RadioButtonToday.isSelected()) {
+            } else if (RadioButtonToday.isSelected()) {  // 今天
                 result = DBConnector.getInstance().getRegisterForDoctor(
                         doctorNumber,
                         LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + " 00:00:00",
                         LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
                 );
             } else {
-                result = DBConnector.getInstance().getRegisterForDoctor(
+                result = DBConnector.getInstance().getRegisterForDoctor(  // 选择时间
                         doctorNumber,
                         pickerDateStart.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) ,
                         pickerDateEnd.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
@@ -171,7 +172,7 @@ public class DoctorCtrl {
                 e.printStackTrace();
                 return;
             }
-        } else if (mainPane.getSelectionModel().getSelectedItem() == tabIncome) {
+        } else if (mainPane.getSelectionModel().getSelectedItem() == tabIncome) {  // 收入列表
             ResultSet result;
             if (RadioButtonAllTime.isSelected()) {
                 result = DBConnector.getInstance().getIncomeInfo(

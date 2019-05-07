@@ -177,6 +177,11 @@ public class DoctorCtrl {
         }
         showRegisterView();
         showIncomeView();
+//        new Thread(() -> {
+//            showRegisterView();
+//            showIncomeView();
+//            System.out.println(Thread.currentThread().getName());
+//        }).start();
     }
 
     @FXML

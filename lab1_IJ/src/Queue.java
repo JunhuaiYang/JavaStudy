@@ -4,10 +4,11 @@ import java.util.NoSuchElementException;
 public class Queue<E> extends Stack<E>{
     private static final long serialVersionUID = 1L;
     private  Stack<E> stk; // skt只能作为入队栈  父类只能作为出队栈
-    public final int f_size = 10;
+    public int f_size = 10;
 
     public Queue( )
     {
+
         stk = new Stack<E>();
     }
 
@@ -15,10 +16,6 @@ public class Queue<E> extends Stack<E>{
             throws IllegalStateException, ClassCastException,
             NullPointerException, IllegalArgumentException
     {
-        // 插入空元素
-        if(e == null)
-            throw new NullPointerException();
-
         //判断入堆是否已满
         if(stk.size() != f_size )
         {
@@ -44,13 +41,10 @@ public class Queue<E> extends Stack<E>{
         return true;
 
     }
+
     public boolean offer(E e)
             throws ClassCastException, NullPointerException, IllegalArgumentException
     {
-        // 插入空元素
-        if(e == null)
-            throw new NullPointerException();
-
         //判断入堆是否已满
         if(stk.size() != f_size )
         {
